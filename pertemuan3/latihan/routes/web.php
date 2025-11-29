@@ -1,0 +1,25 @@
+<?php
+
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\PostController;
+use Illuminate\Support\Facades\Route;
+
+Route::get('/', function () {
+    return view('welcome');
+});
+
+Route::get('/about', function(){
+    return view('about', ['nama' => 'Milda Khaerunnisa']);
+});
+
+Route::get('/blog', function () {
+    return view('blog');
+});
+
+Route::get('/contact', function () {
+    return view('contact');
+});
+
+Route::get('posts', [PostController::class, 'index']);
+Route::get('/categories', [CategoryController::class, 'index']);
+Route::get('/posts', [PostController::class, 'index'])->name('posts.index');
